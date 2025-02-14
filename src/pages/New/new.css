@@ -57,7 +57,7 @@
   
   .supplier-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 20px;
   }
   
@@ -96,4 +96,18 @@
   .btn-save:hover {
     background-color: #218838;
   }
+
+  .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .btn-delete:hover {
+    background-color: #c0392b;
+  }
+  
   

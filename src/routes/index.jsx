@@ -12,7 +12,7 @@ export default function AppRoutes() {
                 <Route path="/consultas" element={<Supllier />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/new" element={<New />} />
-                <Route path="/new:id" element={<New />} />
+                <Route path="/new/:id" element={<New />} />
                 <Route path="/perfil" element={<Profle />} />
             </Routes>
         </BrowserRouter>

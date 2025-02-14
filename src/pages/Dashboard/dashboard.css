@@ -1,0 +1,129 @@
+
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+   
+  }
+  
+  .input-group label {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+    
+  }
+  
+  .input-group input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 50px;
+  }
+  
+  .input-group input:disabled {
+    background-color: #f2f2f2;
+    color: #888;
+  }
+  
+  .input-group button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 50px;
+  }
+  
+  .input-group button:hover {
+    background-color: #218838;
+  }
+
+  
+  
+  /* Filtros posicionados à direita */
+  .filters-container {
+    display: flex;
+    justify-content: flex-end; /* Alinha os filtros à direita */
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que os filtros se ajustem em várias linhas, se necessário */
+  }
+  
+  .filtros {
+    width: 250px; /* Largura fixa para os filtros */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .filtros select,
+  .filtros button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .filtros select {
+    background-color: #f7f7f7;
+  }
+  
+  .filtros button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .filtros button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Listagem de fornecedores com uma largura fixa */
+  .fornecedores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .fornecedor-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .fornecedor-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .fornecedor-card p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .fornecedor-card p:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  
+  button:disabled {
+    background-color: #f2f2f2;
+    color: #888;
+    cursor: not-allowed;
+  }
+  

@@ -26,7 +26,7 @@ export default function NewSupplier() {
       setIsLoading(true);
       async function fetchSupplier() {
         try {
-          const response = await fetch(`http://localhost:5000/new/${id}`);
+          const response = await fetch(`https://clackback-production.up.railway.app/new/${id}`);
           const data = await response.json();
           setSupplierData(data);
         } catch (error) {
@@ -52,8 +52,8 @@ export default function NewSupplier() {
       setIsLoading(true);
       const method = id ? "PUT" : "POST"; 
       const url = id
-        ? `http://localhost:5000/new/${id}` 
-        : "http://localhost:5000/new"; 
+        ? `https://clackback-production.up.railway.app/new/${id}` 
+        : "https://clackback-production.up.railway.app/new"; 
 
       const response = await fetch(url, {
         method: method,
@@ -82,7 +82,7 @@ export default function NewSupplier() {
     if (window.confirm("Tem certeza que deseja excluir este fornecedor?")) {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:5000/new/${id}`, {
+        const response = await fetch(`https://clackback-production.up.railway.app/new/${id}`, {
           method: "DELETE",
         });
   

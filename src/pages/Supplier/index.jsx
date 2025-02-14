@@ -15,33 +15,14 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedSupplier, setSelectedSupplier] = useState(null);
 
-  // useEffect(() => {
-  //   async function fetchSuppliers() {
-  //     try {
-  //       const response = await axios.get('http://localhost:5000/consultas'); // Ajuste a URL para sua API
-  //       setSuppliers(response.data);
-  //       // console.log(data)
-  //       // console.log(response)
-  //     } catch (err) {
-  //       setError('Erro ao carregar fornecedores');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-
-  //   fetchSuppliers();
-  // }, []);
-
   useEffect(() => {
     async function fetchSuppliers() {
       try {
-        const response = await axios.get('http://localhost:5000/consultas'); // Ajuste a URL para sua API
-  
-        // Verifique se a chave 'fornecedores' existe e é um array
+        const response = await axios.get('https://clackback-production.up.railway.app/consultas');
         if (Array.isArray(response.data.fornecedores)) {
           setSuppliers(response.data.fornecedores);
         } else {
-          setSuppliers([]); // Se não for um array, atribua um array vazio
+          setSuppliers([]); 
           console.error("Resposta da API não contém um array na chave 'fornecedores': ", response.data);
         }
       } catch (err) {

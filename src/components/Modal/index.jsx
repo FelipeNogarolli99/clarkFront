@@ -1,93 +1,42 @@
-// import './modal.css'
-// import { FiX } from 'react-icons/fi'
+import './modal.css';
+import { FiX } from 'react-icons/fi';
 
-// export default function Modal({conteudo , close}){
-//     return(
-//         <div className='modal'>
-//             <div className='container'>
-//                 <button className='close' onClick={close}>
-//                     <FiX size={25} color="#FFF"/>
-//                     voltar
-//                 </button>
+export default function Modal({ fornecedor, onClose }) {
+  if (!fornecedor) return null; 
 
-//                 <main>
-//                     <h2> Detalhes do chamado </h2>
+  return (
+    <div className='modal'>
+      <div className='container'>
+        <button className='close' onClick={onClose}>
+          <FiX size={25} color="#FFF" />
+          Voltar
+        </button>
 
-//                     <div className='row'>
-//                         <span>
-//                             cliente:<i> {conteudo.cliente}</i>    
-//                         </span> 
-//                     </div>
-//                     <div className='row'>
-//                         <span>
-//                             Assunto:<i> {conteudo.assunto}</i>    
-//                         </span> 
-//                         <span>
-//                             Cadastrado em : <i>{conteudo.createdFormat}</i>
-//                         </span>
-//                     </div>
-//                     <div className='row'>
-//                         <span>
-//                             Status:<i> {conteudo.status}</i>    
-//                         </span> 
-//                     </div>
-                    
-//                     {conteudo.complemento !== "" &&(
-//                     <>
-//                         <h3> Complemento: </h3>
-//                             <p>
-//                                {conteudo.complemento}
-//                             </p>
-//                     </>
-                    
+        <main>
+          <h2>Detalhes do Fornecedor</h2>
 
-//                 </main>
-//             </div>
-            
-//         </div>
-//     )
-// }
+          <div className='row'>
+            <span>Nome: <i>{fornecedor.nome}</i></span>
+          </div>
 
-import './modal.css'
-import { FiX } from 'react-icons/fi'
+          <div className='row'>
+            <span>Estado: <i>{fornecedor.estado}</i></span>
+          </div>
 
-export default function Modal() {
-    return(
-        <div className='modal'>
-            <div className='container'>
-                <button className='close'>
-                    <FiX size={25} color="#FFF"/>
-                    voltar
-                </button>
+          <div className='row'>
+            <span>Custo kWh: <i>R$ {fornecedor.custo_kwh}</i></span>
+            <span>Min. kWh: <i>{fornecedor.limite_min_kwh}</i></span>
+          </div>
 
-                <main>
-                    <h2> Detalhes do agendamento </h2>
+          <div className='row'>
+            <span>Nº de Clientes: <i>{fornecedor.num_clientes}</i></span>
+            <span>Avaliação: <i>{fornecedor.avaliacao} ⭐</i></span>
+          </div>
 
-                    <div className='row'>
-                        <span>
-                            cliente: <i>Joao da Silva</i>    
-                        </span> 
-                    </div>
-                    <div className='row'>
-                        <span>
-                            Assunto: <i>Consulta medica geral</i>    
-                        </span> 
-                        <span>
-                            Cadastrado em: <i>15 / 12 / 2024</i>
-                        </span>
-                    </div>
-                    <div className='row'>
-                        <span>
-                            Status: <i>Aberto</i>    
-                        </span> 
-                    </div>
-                    
-                    <h3> Complemento: </h3>
-                    <p>
-                        João da silva se gostaria de marcar uma consulta com o DR Rogerio, para uma consulta medica geral
-                    </p>
-                </main>
-            </div>
-        </div>
-    )
+          <h3>Informações Adicionais:</h3>
+          <p>Fornecedor {fornecedor.nome} localizado em {fornecedor.estado} oferece energia a R$ {fornecedor.custo_kwh} por kWh.</p>
+        </main>
+      </div>
+    </div>
+  );
 }

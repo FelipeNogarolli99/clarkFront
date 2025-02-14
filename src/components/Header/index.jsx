@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FiHome, FiUser, FiSettings } from 'react-icons/fi'
 import { FaRegChartBar } from "react-icons/fa";
 import { GrSchedule } from "react-icons/gr";
+import { CgAdd } from "react-icons/cg";
 import './header.css';
 
 export default function Header(){
@@ -18,9 +19,14 @@ export default function Header(){
         Consulta Fornecedores
       </Link>
 
+      <Link to="/new">
+        <CgAdd color="#FFF" size={24} />
+        Novo Fornecedor
+      </Link>
+
       <Link to="/dashboard">
         <FaRegChartBar color="#FFF" size={24} />
-        Dados do consultório
+        Area do cliente
       </Link>
 
       <Link to="/perfil">

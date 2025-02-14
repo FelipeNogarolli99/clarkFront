@@ -1,9 +1,9 @@
-.content {
+.container {
     padding: 20px;
     font-family: Arial, sans-serif;
   }
   
-  .perfil-card {
+  .supplier-card {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -13,7 +13,7 @@
     margin: 0 auto;
   }
   
-  .perfil-header {
+  .supplier-header {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -21,12 +21,12 @@
     color: #333;
   }
   
-  .perfil-header h2 {
+  .supplier-header h2 {
     font-size: 24px;
     margin: 0;
   }
   
-  .perfil-info {
+  .supplier-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -55,18 +55,17 @@
     color: #888;
   }
   
-  .perfil-actions {
+  .supplier-actions {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
   }
   
-  .btn-edit,
-  .btn-save {
+  .btn-back {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #007bff;
+    background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 5px;
@@ -76,8 +75,25 @@
     transition: background-color 0.2s;
   }
   
-  .btn-edit:hover,
+  .btn-back:hover {
+    background-color: #5a6268;
+  }
+  
+  .btn-save {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
   .btn-save:hover {
-    background-color: #0056b3;
+    background-color: #218838;
   }
   

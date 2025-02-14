@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import { FiMessageSquare, FiPlus, FiSearch, FiEdit2 } from 'react-icons/fi';
 import Title from '../../components/Title';
 import Header from '../../components/Header';
@@ -20,6 +20,8 @@ export default function Home() {
       try {
         const response = await axios.get('http://localhost:5000/api/fornecedores'); // Ajuste a URL para sua API
         setSuppliers(response.data);
+        console.log(data)
+        console.log(response)
       } catch (err) {
         setError('Erro ao carregar fornecedores');
       } finally {
@@ -68,7 +70,9 @@ export default function Home() {
             <tr>
               <th scope="col">Nome</th>
               <th scope="col">Estado</th>
-              <th scope="col">Custo</th>
+              <th scope="col">Custo kW/k</th>
+              <th scope="col">Minimo kW/h</th>
+              <th scope="col">N clientes</th>
               <th scope="col">Avaliação</th>
               <th scope="col">Opções</th>
             </tr>
@@ -78,7 +82,9 @@ export default function Home() {
               <tr key={supplier.id}>
                 <td data-label="Nome">{supplier.nome}</td>
                 <td data-label="Estado">{supplier.estado}</td>
-                <td data-label="Custo">R$ {supplier.custo}</td>
+                <td data-label="Custo">R$ {supplier.custo_kwh}</td>
+                <td data-label="Minimo"> {supplier.limite_min_kwh}</td>
+                <td data-label="num">{supplier.num_clientes}</td>
                 <td data-label="Avaliação">{supplier.avaliacao} ⭐</td>
                 <td data-label="#">
                   <button

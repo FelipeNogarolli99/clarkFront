@@ -20,7 +20,6 @@ export default function NewSupplier() {
   const [isLoading, setIsLoading] = useState(false); // Controlar carregamento
   const navigate = useNavigate(); // Para redirecionar após salvar/editar
 
-  // Carregar dados do fornecedor ao acessar /new/:id (edição)
   useEffect(() => {
     if (id) {
       setIsLoading(true);
@@ -48,6 +47,9 @@ export default function NewSupplier() {
 
   // Função para salvar o fornecedor
   const handleSave = async () => {
+
+    if (!validateForm()) return;
+
     try {
       setIsLoading(true);
       const method = id ? "PUT" : "POST"; 
@@ -66,7 +68,7 @@ export default function NewSupplier() {
       if (response.ok) {
         const result = await response.json();
         toast.success("Fornecedor salvo com sucesso!");
-        navigate("/consultas"); // Redirecionar após salvar
+        navigate("/consultas"); 
       } else {
         toast.error("Erro ao salvar fornecedor.");
       }
@@ -100,6 +102,35 @@ export default function NewSupplier() {
       }
     }
   };
+
+  const validateForm = () => {
+    if (!supplierData.nome.trim()) {
+      toast.error("O campo Nome é obrigatório.");
+      return false;
+    }
+    if (!supplierData.estado.trim()) {
+      toast.error("O campo Estado é obrigatório.");
+      return false;
+    }
+    if (supplierData.custo_kwh <= 0 || isNaN(supplierData.custo_kwh)) {
+      toast.error("O custo kW/h deve ser um número válido maior que zero.");
+      return false;
+    }
+    if (supplierData.limite_min_kwh <= 1 || isNaN(supplierData.limite_min_kwh)) {
+      toast.error("O limite mínimo deve ser um número válido.");
+      return false;
+    }
+    if (supplierData.num_clientes <= 0 || isNaN(supplierData.num_clientes)) {
+      toast.error("O número de clientes deve ser um número válido.");
+      return false;
+    }
+    if (supplierData.avaliacao <= 0 || supplierData.avaliacao > 5 || isNaN(supplierData.avaliacao)) {
+      toast.error("A avaliação deve estar entre 0.1 e 5.");
+      return false;
+    }
+    return true;
+  };
+  
 
   return (
     <div>

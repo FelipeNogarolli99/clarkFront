@@ -78,6 +78,7 @@ export default function NewSupplier() {
     } finally {
       setIsLoading(false);
     }
+    
   };
 
   const handleDelete = async () => {

@@ -74,11 +74,11 @@ export default function NewSupplier() {
       }
     } catch (error) {
       console.error("Erro ao salvar fornecedor:", error);
-      toast.error("Erro na comunicação com o servidor.");
+      toast.error("Erro na comunicação com o servidor,tente novamente.");
     } finally {
       setIsLoading(false);
     }
-    
+
   };
 
   const handleDelete = async () => {

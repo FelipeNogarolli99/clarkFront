@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Title from "../../components/Title";
 import { FiMessageSquare } from "react-icons/fi";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./dashboard.css";
 import axios from "axios";
 
@@ -14,16 +15,16 @@ export default function Consultorio() {
   const handleBuscar = async () => {
     const consumoValue = parseFloat(consumo);
 
-    if(consumo <=0){
-      toast.error("Por favor, informe um valor válido para o consumo (maior ou igual a 1).");
-      console.log("erro")
+    if (!consumo.trim()) {
+      console.log("Erro: campo vazio!")
+      toast.error("Por favor, informe um valor para o consumo.");
       return;
     }
   
     // Verificação se o valor é um número válido e se é maior ou igual a zero
-    if (isNaN(consumoValue) || consumoValue < 0) {
-      toast.error("Por favor, informe um valor válido para o consumo (maior ou igual a 1).");
-      console.log("erro")
+    if (isNaN(consumoValue) || consumoValue <= 0) {
+      console.log("Erro: consumo inválido!");
+      toast.error("Por favor, informe um valor válido para o consumo (maior que 0).");
       return;
     }
   
@@ -52,21 +53,22 @@ export default function Consultorio() {
   return (
     <div>
       <Header />
+      <ToastContainer/>
       <div className="content">
         <Title name="Dashboard">
           <FiMessageSquare size={25} />
         </Title>
         <div className="input-group">
-          <label htmlFor="consumo">Informe o consumo em KW/k</label>
+          <label htmlFor="consumo">Informe o consumo em kW/h</label>
           <input
             type="number"
             id="consumo"
             value={consumo}
             onChange={(e) => setConsumo(e.target.value)}
-            placeholder="Ex: 150 KW/k"
+            placeholder="Ex: 150 kW/h"
           />
           <button onClick={handleBuscar} disabled={loading}>
-            {loading ? "Carregando..." : "Buscar Fornecedores"}
+            {loading ? "Carregando..." : "Buscar Melhores Fornecedores"}
           </button>
         </div>
         <div className="fornecedores-list">
